@@ -10,8 +10,4 @@ if __name__ == "__main__":
     mag = Magazine("CarWow", "Cars")
     mag.save()
 
-    article = alex.add_article(mag, "Neo colonialism")
-    print(f"Article saved: {article.title}")
 
-    print("Author's Magazines:", alex.magazines())
-    print("Author's Topics:", alex.topic_areas())
