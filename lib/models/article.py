@@ -1,4 +1,4 @@
-# lib/models/article.py
+
 from db.connection import get_connection
 
 class Article:
