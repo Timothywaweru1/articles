@@ -1,24 +1,20 @@
-from models.author import Author
-from models.magazine import Magazine
-from models.article import Article
+from lib.models.author import Author
+from lib.models.magazine import Magazine
 
-def seed_database():
-    author1 = Author(name="Peter").save()
-    author2 = Author(name="Lara Croft").save()
-    author3 = Author(name="Bob Oketch").save()
+def seed_data():
+    a1 = Author("TIMOTHY")
+    a1.save()
+    a2 = Author("FRANCIS")
+    a2.save()
 
-    mag1 = Magazine(name="Tech Today", category="Technology").save()
-    mag2 = Magazine(name="Science Weekly", category="Science").save()
-    mag3 = Magazine(name="Business Insights", category="Business").save()
+    m1 = Magazine("CARWOW", "Super cars")
+    m1.save()
+    m2 = Magazine("SHUJAA", "Comedy")
+    m2.save()
 
-Article(title="Understanding Python Internals", author_id=author1.id, magazine_id=mag1.id).save()
-Article(title="The Future of Artificial Intelligence", author_id=author1.id, magazine_id=mag1.id).save()
-Article(title="Getting Started with Machine Learning", author_id=author1.id, magazine_id=mag1.id).save()
-Article(title="Exploring Quantum Realms", author_id=author2.id, magazine_id=mag2.id).save()
-Article(title="Breakthroughs in Brain Science", author_id=author2.id, magazine_id=mag2.id).save()
-Article(title="Analyzing Economic Shifts", author_id=author3.id, magazine_id=mag3.id).save()
-Article(title="Building Successful Startups", author_id=author3.id, magazine_id=mag3.id).save()
-Article(title="Smart Financial Choices", author_id=author3.id, magazine_id=mag3.id).save()
-Article(title="Decoding the Blockchain", author_id=author1.id, magazine_id=mag3.id).save()
+    a1.add_article(m1, "Electric Cars")
+    a1.add_article(m2, "Construction")
+    a2.add_article(m2, "Power")
 
-print("Database seeded successfully!")
+if __name__ == "__main__":
+    seed_data()

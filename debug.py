@@ -1,18 +1,17 @@
-from db.seed import seed_database
-from models.author import Author
-from models.magazine import Magazine
-from models.article import Article
+from lib.models.author import Author
+from lib.models.magazine import Magazine
+from lib.models.article import Article
 
-def debug_session():
-    # Setup database and seed data
-    seed_database()
-    
-    # Start interactive session
-    print("Debug session started. You can now interact with the models.")
-    print("Example usage:")
-    print("  - author = Author.find_by_id(1)")
-    print("  - magazine = Magazine.find_by_name('Tech Today')")
-    print("  - articles = Article.find_by_author(1)")
+if __name__ == "__main__":
 
-if __name__ == '__main__':
-    debug_session()
+    alex = Author("Waweru Timothy")
+    alex.save()
+
+    mag = Magazine("CarWow", "Cars")
+    mag.save()
+
+    article = alex.add_article(mag, "Neo colonialism")
+    print(f"Article saved: {article.title}")
+
+    print("Author's Magazines:", alex.magazines())
+    print("Author's Topics:", alex.topic_areas())
